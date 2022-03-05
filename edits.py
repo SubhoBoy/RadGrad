@@ -1,7 +1,8 @@
-import discord
 import asyncio
 import json
 import logging
+
+import discord
 
 with open("config.json") as f:
     config = json.load(f)
