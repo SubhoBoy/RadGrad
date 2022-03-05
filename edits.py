@@ -1,5 +1,20 @@
 import discord
 import asyncio
+import json
+import logging
+
+with open("config.json") as f:
+    config = json.load(f)
+token = config.get("token")
+
+
+logger = logging.getLogger("discord")
+logger.setLevel(logging.INFO)
+handler = logging.FileHandler(filename="discord.log", encoding="utf-8", mode="w")
+handler.setFormatter(
+    logging.Formatter("%(asctime)s:%(levelname)s:%(name)s: %(message)s")
+)
+logger.addHandler(handler)
 
 
 class MyClient(discord.Client):
@@ -19,4 +34,4 @@ class MyClient(discord.Client):
 
 
 client = MyClient()
-client.run("token")
+client.run(token, bot=False)
