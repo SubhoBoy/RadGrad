@@ -321,3 +321,6 @@ config.json
 
 # Logging
 discord.log
+
+# VSCode
+.vscode/
