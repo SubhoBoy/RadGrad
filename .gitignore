@@ -320,7 +320,7 @@ cython_debug/
 config.json
 
 # Logging
-discord.log
+logs/
 
 # VSCode
 .vscode/
