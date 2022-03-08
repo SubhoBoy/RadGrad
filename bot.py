@@ -1,3 +1,4 @@
+import os
 from typing import Any
 from discord.ext import commands
 import json
@@ -7,8 +8,12 @@ import logging
 with open("config.json") as f:
     config: dict = json.load(f)
 
-token: Any = config.get("token")
-user_token: Any = config.get("user_token")
+try:
+  token: Any = config.get("token")
+  user_token: Any = config.get("user_token")
+except FileNotFoundError:
+  token = os.environ['token']
+
 
 # set up logging
 logger = logging.getLogger("discord")
