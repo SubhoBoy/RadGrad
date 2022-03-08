@@ -1,0 +1,21 @@
+[project]
+name = "SubhoBoy's Bot"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Subhodeep Chakraborty", email = "subho07t@gmail.com"},
+]
+dependencies = [
+    "discord.py-stubs>=1.7.3",
+    "discord>=1.7.3",
+]
+requires-python = "~=3.9"
+license = {text = "Unlicense"}
+
+[project.urls]
+Homepage = ""
+[tool.pdm]
+
+[build-system]
+requires = ["pdm-pep517"]
+build-backend = "pdm.pep517.api"
