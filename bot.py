@@ -20,7 +20,7 @@ handler.setFormatter(
 logger.addHandler(handler)
 
 
-bot = commands.Bot(command_prefix="!")
+bot = commands.Bot(command_prefix="s!")
 
 
 async def get_wanted_channel(server: str, channel: str) -> Any:
