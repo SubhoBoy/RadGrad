@@ -9,10 +9,10 @@ with open("config.json") as f:
     config: dict = json.load(f)
 
 try:
-  token: Any = config.get("token")
-  user_token: Any = config.get("user_token")
+    token: str = str(config.get("token"))
+    user_token: str = str(config.get("user_token"))
 except FileNotFoundError:
-  token = os.environ['token']
+    token = os.environ["token"]
 
 
 # set up logging
