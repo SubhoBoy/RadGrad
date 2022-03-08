@@ -45,14 +45,6 @@ async def on_ready():
     print("Press Ctrl+C to stop")
 
 
-# @bot.event
-# async def on_message(message):
-#     if message.channel == wanted_channel:
-#         if message.content == "!test":
-#             await message.channel.send("Testing 1 2 3")
-#         await bot.process_commands(message)
-
-
 @bot.command()
 async def foo(ctx, arg):
     await ctx.send(arg)
@@ -63,6 +55,16 @@ async def length(ctx):
     await ctx.send(
         "Your message is {} characters long.".format(len(ctx.message.content))
     )
+
+
+@bot.command()
+async def ping(ctx):
+    await ctx.send("Pong!")
+
+
+@bot.command()
+async def test(ctx):
+    await ctx.send("Testing 1 2 3")
 
 
 mode = (input("Run as bot (b) or run as user (u)? ")).lower()
