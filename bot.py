@@ -64,7 +64,7 @@ async def length(ctx):
     )
 
 
-mode = input("Run as bot (b) or run as user (u)? ")
+mode = (input("Run as bot (b) or run as user (u)? ")).lower()
 if mode == "b":
     bot.run(token)
 elif mode == "u":
