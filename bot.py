@@ -8,6 +8,7 @@ with open("config.json") as f:
     config: dict = json.load(f)
 
 token: Any = config.get("token")
+user_token: Any = config.get("user_token")
 
 # set up logging
 logger = logging.getLogger("discord")
@@ -63,4 +64,10 @@ async def length(ctx):
     )
 
 
-bot.run(token)
+mode = input("Run as bot (b) or run as user (u)? ")
+if mode == "b":
+    bot.run(token)
+elif mode == "u":
+    bot.run(user_token, bot=False)
+else:
+    print("Invalid mode")
