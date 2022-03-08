@@ -42,6 +42,7 @@ async def get_wanted_channel(server: str, channel: str) -> Any:
 @bot.event
 async def on_ready():
     print(f"Bot connected as {bot.user}")
+    print("Press Ctrl+C to stop")
 
 
 # @bot.event
