@@ -59,7 +59,7 @@ async def length(ctx):
 
 @bot.command()
 async def ping(ctx):
-    await ctx.send("Pong!")
+    await ctx.send("Pong! Command took {} seconds.".format(round(bot.latency, 3)))
 
 
 @bot.command()
