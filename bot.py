@@ -4,11 +4,10 @@ from discord.ext import commands
 import json
 import logging
 
-# get config values from config file
-with open("config.json") as f:
-    config: dict = json.load(f)
-
 try:
+    # get config values from config file
+    with open("config.json") as f:
+        config: dict = json.load(f)
     token: str = str(config.get("token"))
     user_token: str = str(config.get("user_token"))
 except FileNotFoundError:
