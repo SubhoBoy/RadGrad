@@ -16,6 +16,15 @@ license = {text = "Unlicense"}
 [project.urls]
 Homepage = ""
 
+[tool.poetry]
+name = "SubhoBoy's Bot"
+version = "0.1.0"
+description = ""
+authors = ["Subhodeep Chakraborty <subho07t@gmail.com>"]
+[tool.poetry.dependencies]
+python = "~=3.9"
+discord = "^1.7.3"
+inputimeout = "^1.0.4"
 [project.optional-dependencies]
 [tool.pdm]
 [tool.pdm.dev-dependencies]
