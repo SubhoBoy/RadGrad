@@ -27,7 +27,7 @@ try:
         token = input("Please enter your token: ")
         with open("config.json", "a") as f:
             json.dump({"token": token}, f)
-    user_token: str = str(config.get("user_token"))
+    user_token: Any = str(config.get("user_token"))
 except FileNotFoundError:
     logger.warning(
         "Config file not found. Attempting to get token from environment variables."
@@ -44,6 +44,7 @@ except FileNotFoundError:
         user_token = os.environ["user_token"]
     except KeyError:
         logger.info("user_token not found in environment variables.")
+        user_token = None
 
 
 bot = commands.Bot(command_prefix="s!")
