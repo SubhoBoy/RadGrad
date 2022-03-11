@@ -1,13 +1,14 @@
 [project]
 name = "SubhoBoy's Bot"
 version = "0.1.0"
-description = ""
+description = "A fun bot for use in my personal servers. Feel free to use it yourself, however. Issues/PRs welcome!"
 authors = [
     {name = "Subhodeep Chakraborty", email = "subho07t@gmail.com"},
 ]
 dependencies = [
     "discord.py-stubs>=1.7.3",
     "discord>=1.7.3",
+    "inputimeout>=1.0.4",
 ]
 requires-python = "~=3.9"
 license = {text = "Unlicense"}
