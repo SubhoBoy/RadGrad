@@ -4,6 +4,7 @@ from discord.ext import commands
 import json
 import logging
 from inputimeout import inputimeout, TimeoutOccurred
+import sys
 
 # set up logging
 logger = logging.getLogger("discord")
@@ -31,7 +32,18 @@ except FileNotFoundError:
     logger.warning(
         "Config file not found. Attempting to get token from environment variables."
     )
-    token = os.environ["token"]
+    try:
+        token = os.environ["token"]
+    except KeyError:
+        logger.critical("token not found in environment variables. Exiting.")
+        sys.exit(
+            """no token found.
+            Please enter a token in config file or environment variable."""
+        )
+    try:
+        user_token = os.environ["user_token"]
+    except KeyError:
+        logger.info("user_token not found in environment variables.")
 
 
 bot = commands.Bot(command_prefix="s!")
