@@ -61,32 +61,41 @@ async def on_ready():
 
 @bot.command()
 async def foo(ctx, arg):
-    await ctx.send(arg)
+    await ctx.reply(arg)
 
 
 @bot.command()
 async def length(ctx):
-    await ctx.send(
+    await ctx.reply(
         "Your message is {} characters long.".format(len(ctx.message.content))
     )
 
 
 @bot.command()
 async def ping(ctx):
-    await ctx.send("Pong! Command took {} seconds.".format(round(bot.latency, 3)))
+    await ctx.reply("Pong! Command took {} seconds.".format(round(bot.latency, 3)))
 
 
 @bot.command()
 async def test(ctx):
-    await ctx.send("Testing 1 2 3")
+    await ctx.reply("Testing 1 2 3")
 
 
-def run_bot(token, user_token=None):
+def run_bot(token: str, user_token: str = None):
+    """
+    run_bot Run the program.
+
+    Args:
+        token (str): The token to be used for the bot.
+        user_token (str, optional): Token to be used for the user. Defaults to None.
+    """
     try:
-        mode = inputimeout(
-            prompt="Run as bot (b) or user (u)? (You have 1 second to answer)",
-            timeout=1,
-        )
+        mode: str = (
+            inputimeout(
+                prompt="Run as bot (b) or user (u)? (You have 1 second to answer)",
+                timeout=1,
+            )
+        ).lower()
     except TimeoutOccurred:
         mode = "b"
         print("Proceeding as bot")
