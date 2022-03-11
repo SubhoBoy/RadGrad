@@ -99,4 +99,4 @@ def run_bot(token, user_token=None):
         print("Invalid mode")
 
 
-run_bot(token, user_token, bot)
+run_bot(token, user_token)
