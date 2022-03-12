@@ -10,7 +10,7 @@ dependencies = [
     "discord>=1.7.3",
     "inputimeout>=1.0.4",
 ]
-requires-python = ">=3.9"
+requires-python = ">=3.8"
 license = {text = "Unlicense"}
 
 [project.urls]
@@ -22,7 +22,7 @@ version = "0.1.0"
 description = ""
 authors = ["Subhodeep Chakraborty <subho07t@gmail.com>"]
 [tool.poetry.dependencies]
-python = "~=3.9"
+python = "~=3.8"
 discord = "^1.7.3"
 inputimeout = "^1.0.4"
 [project.optional-dependencies]

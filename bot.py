@@ -22,20 +22,20 @@ try:
     logging.info("Config file found.")
     token: str = str(config.get("token"))
     if token is None:
-        logger.error("token not found in config file.")
+        logging.error("token not found in config file.")
         print("token not found in config file.")
         token = input("Please enter your token: ")
         with open("config.json", "a") as f:
             json.dump({"token": token}, f)
     user_token: Any = str(config.get("user_token"))
 except FileNotFoundError:
-    logger.warning(
+    logging.warning(
         "Config file not found. Attempting to get token from environment variables."
     )
     try:
         token = os.environ["token"]
     except KeyError:
-        logger.critical("token not found in environment variables. Exiting.")
+        logging.critical("token not found in environment variables. Exiting.")
         sys.exit(
             """no token found.
             Please enter a token in config file or environment variable."""
@@ -43,7 +43,7 @@ except FileNotFoundError:
     try:
         user_token = os.environ["user_token"]
     except KeyError:
-        logger.info("user_token not found in environment variables.")
+        logging.info("user_token not found in environment variables.")
         user_token = None
 
 
@@ -64,7 +64,7 @@ async def foo(ctx, arg):
 @bot.command()
 async def length(ctx):
     await ctx.reply(
-        "Your message is {} characters long.".format(len(ctx.message.content))
+        "Your message is {} characters long.".format(len(ctx.message.content) - 9)
     )
 
 
@@ -89,8 +89,8 @@ def run_bot(token: str, user_token: str = None):
     try:
         mode: str = (
             inputimeout(
-                prompt="Run as bot (b) or user (u)? (You have 1 second to answer)",
-                timeout=1,
+                prompt="Run as bot (b) or user (u)? (You have 3 seconds to answer)",
+                timeout=3,
             )
         ).lower()
     except TimeoutOccurred:
