@@ -50,22 +50,6 @@ except FileNotFoundError:
 bot = commands.Bot(command_prefix="s!")
 
 
-async def get_wanted_channel(server: str, channel: str) -> Any:
-    """Get a specific channel from a specific server.
-
-    Args:
-        server (string): Part of the server name.
-        channel (string): Part of the channel name.
-    """
-    guilds = bot.guilds
-    for current_guild in guilds:
-        if server in current_guild.name.lower():
-            channels = current_guild.channels
-            for current_channel in channels:
-                if channel in current_channel.name.lower():
-                    return current_channel
-
-
 @bot.event
 async def on_ready():
     print(f"Bot connected as {bot.user}")
