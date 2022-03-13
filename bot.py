@@ -5,6 +5,7 @@ import json
 import logging
 from inputimeout import inputimeout, TimeoutOccurred
 import sys
+import keep_alive
 
 # set up logging
 logger = logging.getLogger("discord")
@@ -104,5 +105,5 @@ def run_bot(token: str, user_token: str = None):
     else:
         print("Invalid mode")
 
-
+keep_alive.keep_alive()
 run_bot(token, user_token)
