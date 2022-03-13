@@ -1,4 +1,5 @@
 import os
+from random import random
 from typing import Any
 from discord.ext import commands
 import json
@@ -79,6 +80,19 @@ async def test(ctx):
     await ctx.reply("Testing 1 2 3")
 
 
+@bot.command(name="8ball")
+async def eight_ball(ctx):
+    choices = [
+        "Yes, definetely",
+        "No, certainly not",
+        "This question is too hard",
+        "Maybe",
+        "I don't know",
+    ]
+    choice = choices[int(round(random() * (len(choices) - 1)))]
+    await ctx.reply(choice)
+
+
 def run_bot(token: str, user_token: str = None):
     """
     run_bot Run the program.
@@ -104,6 +118,7 @@ def run_bot(token: str, user_token: str = None):
         bot.run(user_token, bot=False)
     else:
         print("Invalid mode")
+
 
 keep_alive.keep_alive()
 run_bot(token, user_token)
