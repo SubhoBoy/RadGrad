@@ -21,23 +21,23 @@ logger.addHandler(handler)
 try:
     with open("config.json") as f:
         config: dict = json.load(f)
-    logging.info("Config file found.")
+    logger.info("Config file found.")
     token: str = str(config.get("token"))
     if token is None:
-        logging.error("token not found in config file.")
+        logger.error("token not found in config file.")
         print("token not found in config file.")
         token = input("Please enter your token: ")
         with open("config.json", "a") as f:
             json.dump({"token": token}, f)
     user_token: Any = str(config.get("user_token"))
 except FileNotFoundError:
-    logging.warning(
+    logger.warning(
         "Config file not found. Attempting to get token from environment variables."
     )
     try:
         token = os.environ["token"]
     except KeyError:
-        logging.critical("token not found in environment variables. Exiting.")
+        logger.critical("token not found in environment variables. Exiting.")
         sys.exit(
             """no token found.
             Please enter a token in config file or environment variable."""
@@ -45,7 +45,7 @@ except FileNotFoundError:
     try:
         user_token = os.environ["user_token"]
     except KeyError:
-        logging.info("user_token not found in environment variables.")
+        logger.info("user_token not found in environment variables.")
         user_token = None
 
 
@@ -83,11 +83,11 @@ async def test(ctx):
 @bot.command(name="8ball")
 async def eight_ball(ctx):
     choices = [
-        "Yes, definetely",
-        "No, certainly not",
-        "This question is too hard",
-        "Maybe",
-        "I don't know",
+        "Yes, definetely.",
+        "No, certainly not.",
+        "This question peers too deep into the mystical depths of the universe.",
+        "Why would you even ask that?",
+        "You are not yet qualified to ask that question. Try skiing or something.",
     ]
     choice = choices[int(round(random() * (len(choices) - 1)))]
     await ctx.reply(choice)
@@ -95,7 +95,7 @@ async def eight_ball(ctx):
 
 def run_bot(token: str, user_token: str = None):
     """
-    run_bot Run the program.
+    Run the program.
 
     Args:
         token (str): The token to be used for the bot.
@@ -111,7 +111,7 @@ def run_bot(token: str, user_token: str = None):
     except TimeoutOccurred:
         mode = "b"
         print("Proceeding as bot")
-        logging.info("Proceeding as bot as no input was given.")
+        logger.info("Proceeding as bot as no input was given.")
     if mode == "b":
         bot.run(token)
     elif mode == "u":
