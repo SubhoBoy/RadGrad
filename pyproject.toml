@@ -26,7 +26,7 @@ authors = ["Subhodeep Chakraborty <subho07t@gmail.com>"]
 python = ">=3.8"
 discord = "^1.7.3"
 inputimeout = "^1.0.4"
-flask[async] = "^2.0.3"
+Flask = {extras = ["async"], version = "^2.0.3"}
 [project.optional-dependencies]
 [tool.pdm]
 [tool.pdm.dev-dependencies]
