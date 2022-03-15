@@ -92,5 +92,10 @@ async def help(self, ctx: commands.Context):
     await ctx.send("template command")
 
 
+@commands.command(name="repl", aliases=["replit"])
+async def repl(self, ctx: commands.Context):
+    await ctx.send("repl.deploy works!")
+
+
 keep_alive.keep_alive()
 bot.run(token)
