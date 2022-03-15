@@ -89,8 +89,15 @@ async def eight_ball(ctx):
         "Why would you even ask that?",
         "You are not yet qualified to ask that question. Try skiing or something.",
     ]
-    choice = choices[int(round(random() * (len(choices) - 1)))]
-    await ctx.reply(choice)
+    if ctx.message.content.lower() is ("s!8ball" or "s!8ball "):
+        await ctx.reply("Please ask a question.")
+    else:
+        await ctx.reply(random.choice(choices))
+
+
+@commands.command(name="help", aliases=["man"])
+async def help(self, ctx: commands.Context):
+    await ctx.send("template command")
 
 
 def run_bot(token: str, user_token: str = None):

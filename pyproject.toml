@@ -9,6 +9,7 @@ dependencies = [
     "discord.py-stubs>=1.7.3",
     "discord>=1.7.3",
     "inputimeout>=1.0.4",
+    "flask[async]>=2.0.3",
 ]
 requires-python = ">=3.8"
 license = {text = "Unlicense"}
