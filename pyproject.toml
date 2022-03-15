@@ -1,7 +1,7 @@
 [project]
-name = "SubhoBoy's Bot"
-version = "0.1.0"
-description = "A fun bot for use in my personal servers. Feel free to host it yourself, however. Issues/PRs welcome!"
+name = "Bot"
+version = "0.1.1"
+description = "SubhoBoy's Bot:- A fun bot for use in my personal servers. Feel free to host it yourself, however. Issues/PRs welcome!"
 authors = [
     {name = "Subhodeep Chakraborty", email = "subho07t@gmail.com"},
 ]
@@ -23,7 +23,7 @@ version = "0.1.0"
 description = ""
 authors = ["Subhodeep Chakraborty <subho07t@gmail.com>"]
 [tool.poetry.dependencies]
-python = "~=3.8"
+python = ">=3.8"
 discord = "^1.7.3"
 inputimeout = "^1.0.4"
 Flask = "^2.0.3"
