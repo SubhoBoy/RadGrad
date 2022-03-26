@@ -97,5 +97,5 @@ async def repl(self, ctx: commands.Context):
     await ctx.send("repl.deploy works!")
 
 
-keep_alive.keep_alive()
+#keep_alive.keep_alive()
 bot.run(token)
